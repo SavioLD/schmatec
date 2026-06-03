@@ -1,8 +1,0 @@
-User-agent: *
-Allow: /
-
-Disallow: /impressum.html
-Disallow: /datenschutz.html
-Disallow: /agb.html
-
-Sitemap: https://schmatec.de/sitemap.xml
