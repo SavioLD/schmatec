@@ -159,6 +159,49 @@
     show(0);
   }
 
+  /* ---------- Floating Chat (FAQ-Assistent) ---------- */
+  const chatLauncher = document.querySelector('[data-chat-launcher]');
+  const chatPanel = document.querySelector('[data-chat-panel]');
+  const chatBackdrop = document.querySelector('[data-chat-backdrop]');
+  const chatClose = document.querySelector('[data-chat-close]');
+  const chatBody = document.querySelector('[data-chat-body]');
+  let chatLoaded = false;
+
+  function openChat() {
+    if (!chatPanel) return;
+    if (!chatLoaded) {
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://www.thinkupai.de/automatisierungen/schmatec_iframe';
+      iframe.title = 'FAQ-Assistent';
+      iframe.setAttribute('allow', 'clipboard-write');
+      iframe.addEventListener('load', () => {
+        const loader = chatBody.querySelector('.chat-panel__loading');
+        if (loader) loader.classList.add('is-hidden');
+      });
+      chatBody.appendChild(iframe);
+      chatLoaded = true;
+    }
+    chatPanel.classList.add('is-open');
+    chatBackdrop.classList.add('is-open');
+    chatLauncher.hidden = true;
+    chatPanel.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeChat() {
+    if (!chatPanel) return;
+    chatPanel.classList.remove('is-open');
+    chatBackdrop.classList.remove('is-open');
+    chatLauncher.hidden = false;
+    chatPanel.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  if (chatLauncher) chatLauncher.addEventListener('click', openChat);
+  if (chatClose)    chatClose.addEventListener('click', closeChat);
+  if (chatBackdrop) chatBackdrop.addEventListener('click', closeChat);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && chatPanel && chatPanel.classList.contains('is-open')) closeChat();
+  });
+
   /* ---------- Active nav state ---------- */
   const path = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav__menu a').forEach(link => {
