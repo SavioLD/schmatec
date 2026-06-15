@@ -297,6 +297,16 @@ p { margin: 0 0 1em; }
 @media (max-width: 900px) {
   .hero__inner { grid-template-columns: 1fr; }
 }
+.hero__inner--center {
+  grid-template-columns: 1fr;
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
+}
+.hero__inner--center .eyebrow { justify-content: center; }
+.hero__inner--center .hero__sub { margin-left: auto; margin-right: auto; }
+.hero__inner--center .hero__ctas { justify-content: center; }
+.hero__inner--center .hero__meta { justify-content: center; }
 .hero h1 strong {
   color: var(--signal-blue);
   font-weight: inherit;
