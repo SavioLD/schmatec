@@ -202,6 +202,45 @@
     if (e.key === 'Escape' && chatPanel && chatPanel.classList.contains('is-open')) closeChat();
   });
 
+  /* ---------- Product search (filters <details> in list) ---------- */
+  const psInput = document.querySelector('[data-product-search]');
+  const psList = document.querySelector('[data-product-search-list]');
+  const psClear = document.querySelector('[data-product-search-clear]');
+  const psStatus = document.querySelector('[data-product-search-status]');
+  if (psInput && psList) {
+    const items = Array.from(psList.querySelectorAll('details'));
+    const norm = (s) => s.toLowerCase()
+      .replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u').replace(/ß/g, 'ss');
+    const data = items.map(d => ({
+      el: d,
+      text: norm(d.textContent || '')
+    }));
+    function apply() {
+      const q = norm(psInput.value.trim());
+      let visible = 0;
+      data.forEach(({ el, text }) => {
+        const match = q.length === 0 || text.includes(q);
+        el.hidden = !match;
+        if (match) visible++;
+        // Auto-open on search to show context
+        if (q.length > 1 && match) el.open = true;
+        if (q.length === 0) el.open = false;
+      });
+      psClear.hidden = q.length === 0;
+      if (q.length === 0) psStatus.textContent = '';
+      else if (visible === 0) psStatus.textContent = `Keine Treffer für „${psInput.value.trim()}". Sprechen Sie uns gerne direkt an.`;
+      else if (visible === 1) psStatus.textContent = `1 Treffer für „${psInput.value.trim()}".`;
+      else psStatus.textContent = `${visible} Treffer für „${psInput.value.trim()}".`;
+    }
+    psInput.addEventListener('input', apply);
+    psClear.addEventListener('click', () => { psInput.value = ''; apply(); psInput.focus(); });
+    // Restore initial first-opened state after registering listener
+    // Read ?q=... from URL so links from nav can prefill
+    const params = new URLSearchParams(location.search);
+    const q = params.get('q');
+    if (q) { psInput.value = q; apply(); }
+  }
+
   /* ---------- Active nav state ---------- */
   const path = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav__menu a').forEach(link => {

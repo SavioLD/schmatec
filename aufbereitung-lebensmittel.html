@@ -65,7 +65,24 @@
       </p>
     </div>
 
-    <div class="faq reveal">
+    <div class="product-search reveal" role="search">
+      <label for="product-search-input" class="visually-hidden">Produkte durchsuchen</label>
+      <svg class="product-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>
+      </svg>
+      <input
+        id="product-search-input"
+        type="search"
+        placeholder="Maschine oder Prozessschritt suchen — z. B. Waschen, Bürstmaschine, Kürbis …"
+        autocomplete="off"
+        data-product-search>
+      <button type="button" class="product-search__clear" data-product-search-clear aria-label="Suche zurücksetzen" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <p class="product-search__status" data-product-search-status aria-live="polite"></p>
+
+    <div class="faq reveal" data-product-search-list>
       <details open>
         <summary>Annehmen & Bunkern</summary>
         <p>Schonende Aufnahme direkt vom Anhänger oder Container.
