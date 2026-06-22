@@ -14,15 +14,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,400;0,600;0,700;0,800;1,700;1,800&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="icon" href="favicon.ico">
-<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="assets/images/favicon.ico">
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
 <header class="site-header">
   <div class="container">
     <nav class="nav" aria-label="Hauptnavigation">
-      <a href="index.html" class="nav__logo"><img src="logo-schmatec.png" alt="Schmatec"></a>
+      <a href="index.html" class="nav__logo"><img src="assets/images/logo-schmatec.png" alt="Schmatec"></a>
       <button class="nav__toggle" aria-label="Menü öffnen" aria-expanded="false"><span></span></button>
       <ul class="nav__menu">
         <li><a href="index.html">Start</a></li>
@@ -61,7 +61,7 @@
         <h3>Geprüfte Gebrauchtmaschinen</h3>
         <p>Wechselnder Bestand an Einzelmaschinen und kompletten Linien.
         Auf Wunsch geprüft, gereinigt und mit Funktionsgarantie.</p>
-        <a href="kontakt.html?thema=gebrauchtmaschine-kaufen" class="card__link">
+        <a href="mailto:info@schmatec.de?subject=Gebrauchtmaschine%20kaufen" class="card__link">
           Verfügbarkeit anfragen
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
@@ -72,7 +72,7 @@
         <p>Sie lösen eine Linie auf oder modernisieren? Wir kaufen
         funktionsfähige Maschinen an oder nehmen sie bei einer
         Neuanlage in Zahlung.</p>
-        <a href="kontakt.html?thema=gebrauchtmaschine-verkaufen" class="card__link">
+        <a href="mailto:info@schmatec.de?subject=Maschine%20anbieten" class="card__link">
           Maschine anbieten
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
@@ -83,22 +83,62 @@
         <p>Bestehende Maschine erhalten statt ersetzen: Wir überholen,
         rüsten um und passen an Ihre Linie an — in eigener Werkstatt
         in Irslingen.</p>
-        <a href="kontakt.html?thema=aufarbeitung" class="card__link">
+        <a href="mailto:info@schmatec.de?subject=Aufarbeitung%20%2F%20Umbau" class="card__link">
           Aufarbeitung anfragen
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </article>
     </div>
 
-    <div class="card reveal" style="margin-top:32px;background:var(--paper);text-align:center;">
-      <div class="card__num" style="justify-content:center;">Aktueller Bestand</div>
+    <div class="section-head reveal" style="margin-top:64px;margin-bottom:32px;">
+      <span class="eyebrow">Aktuell verfügbar</span>
+      <h2>Im Angebot.</h2>
+    </div>
+
+    <article class="used-machine reveal">
+      <div class="used-machine__media">
+        <img src="img-1276.jpg" alt="Gebrauchter Hydro-Entsteiner für Kartoffeln — verzinkter Stahl, Außenaufstellung" loading="lazy">
+      </div>
+      <div class="used-machine__body">
+        <div class="card__num">Entsteinen · Kartoffeln</div>
+        <h3 style="font-size:1.6rem;margin-top:8px;">Hydro-Entsteiner für Kartoffeln</h3>
+        <p>
+          Hydro-Entsteiner (auch Hydro-Steinabscheider) zur zuverlässigen
+          Trennung von Steinen aus Kartoffeln im Wasserbad. Die Kartoffeln
+          schwimmen auf, Steine und schwere Beimischungen setzen sich ab
+          und werden separat ausgeschleust — schützt nachfolgende Wasch-,
+          Sortier- und Schälmaschinen vor Beschädigungen.
+        </p>
+        <dl class="contact-info" style="margin-top:20px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));display:grid;gap:16px;">
+          <div><dt>Einsatzbereich</dt><dd>Kartoffel-Aufbereitung</dd></div>
+          <div><dt>Funktion</dt><dd>Steinabscheidung im Wasserbad</dd></div>
+          <div><dt>Bauweise</dt><dd>Verzinkter Stahl</dd></div>
+          <div><dt>Aufstellung</dt><dd>Halle oder Außenbereich</dd></div>
+          <div><dt>Zustand</dt><dd>Auf Anfrage</dd></div>
+          <div><dt>Preis</dt><dd>Auf Anfrage</dd></div>
+        </dl>
+        <p style="margin-top:20px;font-size:.92rem;color:var(--steel);">
+          Detaillierte technische Daten, weitere Bilder und Preis senden
+          wir Ihnen gerne auf Anfrage zu.
+        </p>
+        <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="mailto:info@schmatec.de?subject=Anfrage%20Hydro-Entsteiner%20Kartoffeln" class="btn btn--primary">
+            Maschine anfragen <span class="arrow">→</span>
+          </a>
+          <a href="tel:+4974049155 70" class="btn btn--ghost">+49 7404 915570</a>
+        </div>
+      </div>
+    </article>
+
+    <div class="card reveal" style="margin-top:48px;background:var(--paper);text-align:center;">
+      <div class="card__num" style="justify-content:center;">Weitere Maschinen gesucht?</div>
       <h3 style="margin-top:8px;">Verfügbarkeit wechselt laufend.</h3>
       <p style="max-width:60ch;margin:12px auto 24px;color:var(--ink-2);">
         Unser Gebrauchtmaschinen-Bestand ändert sich ständig. Sagen Sie
         uns, welche Maschine oder welchen Prozessschritt Sie suchen —
         wir melden uns, sobald etwas Passendes verfügbar ist.
       </p>
-      <a href="kontakt.html?thema=gebrauchtmaschine" class="btn btn--primary btn--lg">
+      <a href="mailto:info@schmatec.de?subject=Gesuch%20Gebrauchtmaschine" class="btn btn--primary btn--lg">
         Gesuch aufgeben <span class="arrow">→</span>
       </a>
     </div>
@@ -118,7 +158,7 @@
 <footer class="site-footer">
   <div class="container">
     <div class="site-footer__grid">
-      <div class="site-footer__logo"><img src="logo-schmatec.png" alt="Schmatec GmbH"><p style="max-width:32ch;">Schmatec GmbH · Schneider Maschinen Technik. Aus Irslingen seit 2004.</p></div>
+      <div class="site-footer__logo"><img src="assets/images/logo-schmatec.png" alt="Schmatec GmbH"><p style="max-width:32ch;">Schmatec GmbH · Schneider Maschinen Technik. Aus Irslingen seit 2004.</p></div>
       <div><h4>Produkte</h4><ul><li><a href="foerdertechnik-gemuesebau.html">Fördertechnik Gemüsebau</a></li><li><a href="aufbereitung-lebensmittel.html">Aufbereitungsmaschinen</a></li><li><a href="anlagenplanung.html">Anlagenplanung</a></li><li><a href="gebrauchtmaschinen.html">Gebrauchtmaschinen</a></li><li><a href="referenzen.html">Referenzen</a></li></ul></div>
       <div><h4>Unternehmen</h4><ul><li><a href="ueber-uns.html">Über uns</a></li><li><a href="karriere.html">Karriere</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
       <div><h4>Kontakt</h4><ul><li>Schmatec GmbH</li><li>Waidbachstraße 12</li><li>78661 Dietingen-Irslingen</li><li><a href="tel:+4974049155 70">+49 7404 915570</a></li><li><a href="mailto:info@schmatec.de">info@schmatec.de</a></li></ul></div>
@@ -126,6 +166,6 @@
     <div class="site-footer__bottom"><span>© 2026 Schmatec GmbH · Alle Rechte vorbehalten</span><div class="site-footer__bottom-links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="agb.html">AGB</a></div></div>
   </div>
 </footer>
-<script src="main.js" defer></script>
+<script src="js/main.js" defer></script>
 </body>
 </html>
