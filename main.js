@@ -6,12 +6,27 @@
   const navToggle = document.querySelector('.nav__toggle');
   const navMenu = document.querySelector('.nav__menu');
   if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
-      const isOpen = navMenu.classList.toggle('is-open');
-      navToggle.setAttribute('aria-expanded', isOpen);
-    });
+    const backdrop = document.createElement('div');
+    backdrop.className = 'nav-backdrop';
+    document.body.appendChild(backdrop);
+    const setNav = (open) => {
+      navMenu.classList.toggle('is-open', open);
+      backdrop.classList.toggle('is-open', open);
+      navToggle.setAttribute('aria-expanded', open);
+      navToggle.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+      document.body.classList.toggle('nav-open', open);
+    };
+    backdrop.addEventListener('click', () => setNav(false));
+    navToggle.addEventListener('click', () => setNav(!navMenu.classList.contains('is-open')));
     navMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => navMenu.classList.remove('is-open'));
+      link.addEventListener('click', () => setNav(false));
+    });
+    // close on Escape and when resizing back to desktop
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('is-open')) setNav(false);
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1180 && navMenu.classList.contains('is-open')) setNav(false);
     });
   }
 
@@ -158,6 +173,49 @@
 
     show(0);
   }
+
+  /* ---------- Floating Chat (FAQ-Assistent) ---------- */
+  const chatLauncher = document.querySelector('[data-chat-launcher]');
+  const chatPanel = document.querySelector('[data-chat-panel]');
+  const chatBackdrop = document.querySelector('[data-chat-backdrop]');
+  const chatClose = document.querySelector('[data-chat-close]');
+  const chatBody = document.querySelector('[data-chat-body]');
+  let chatLoaded = false;
+
+  function openChat() {
+    if (!chatPanel) return;
+    if (!chatLoaded) {
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://www.thinkupai.de/automatisierungen/schmatec_iframe';
+      iframe.title = 'FAQ-Assistent';
+      iframe.setAttribute('allow', 'clipboard-write');
+      iframe.addEventListener('load', () => {
+        const loader = chatBody.querySelector('.chat-panel__loading');
+        if (loader) loader.classList.add('is-hidden');
+      });
+      chatBody.appendChild(iframe);
+      chatLoaded = true;
+    }
+    chatPanel.classList.add('is-open');
+    chatBackdrop.classList.add('is-open');
+    chatLauncher.hidden = true;
+    chatPanel.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeChat() {
+    if (!chatPanel) return;
+    chatPanel.classList.remove('is-open');
+    chatBackdrop.classList.remove('is-open');
+    chatLauncher.hidden = false;
+    chatPanel.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  if (chatLauncher) chatLauncher.addEventListener('click', openChat);
+  if (chatClose)    chatClose.addEventListener('click', closeChat);
+  if (chatBackdrop) chatBackdrop.addEventListener('click', closeChat);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && chatPanel && chatPanel.classList.contains('is-open')) closeChat();
+  });
 
   /* ---------- Product search (filters <details> in list) ---------- */
   const psInput = document.querySelector('[data-product-search]');
