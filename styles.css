@@ -338,10 +338,14 @@ body.nav-open { overflow: hidden; }
   position: relative;
   overflow: hidden;
   background:
+    linear-gradient(180deg, rgba(244,245,247,.86) 0%, rgba(255,255,255,.90) 100%),
+    var(--hero-bg, none) center/cover no-repeat,
     radial-gradient(circle at 85% 20%, rgba(46,127,204,.15), transparent 50%),
     linear-gradient(180deg, var(--paper) 0%, var(--white) 100%);
   padding: clamp(80px, 12vw, 160px) 0 clamp(60px, 8vw, 100px);
 }
+/* Halbtransparentes Hallen-Bild im Hintergrund (Datei halle.jpg ins Repo laden) */
+.hero--photo { --hero-bg: url("halle.jpg"); }
 .hero::before {
   content: "";
   position: absolute;

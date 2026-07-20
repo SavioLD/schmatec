@@ -115,7 +115,7 @@
 </header>
 
 <!-- ==================== HERO ==================== -->
-<section class="hero hero--single">
+<section class="hero hero--single hero--photo">
   <div class="container">
     <div class="hero__inner hero__inner--center">
       <div>
@@ -382,7 +382,7 @@
   <div class="container">
     <div class="section-head section-head--center reveal">
       <span class="eyebrow" style="justify-content:center;">Warum Schmatec?</span>
-      <h2>Wir sind kein Vertrieb. <em style="color:var(--signal-blue);font-style:italic;">Wir sind eine Werkstatt.</em></h2>
+      <h2>Wir sind kein Vertrieb. <em style="color:var(--signal-blue);font-style:italic;">Wir sind eine Fertigung.</em></h2>
       <p class="lead" style="margin-left:auto;margin-right:auto;">
         Wer bei uns anruft, spricht mit jemandem, der die Maschine
         gebaut hat — nicht mit einem Callcenter. Vom Erstgespräch bis
@@ -391,6 +391,24 @@
     </div>
     <div class="flex-center" style="display:flex;justify-content:center;margin:16px 0 56px;">
       <a href="kontakt.html" class="btn btn--primary btn--lg">Jetzt Anfrage starten <span class="arrow">→</span></a>
+    </div>
+
+    <!-- AI Assistant (inline) -->
+    <div class="ai-assistant reveal" style="max-width:880px;margin-left:auto;margin-right:auto;">
+      <div class="ai-assistant__head">
+        <span class="ai-assistant__badge">Live</span>
+        <h3 class="ai-assistant__title">Eine Frage? Fragen Sie direkt unseren Assistenten.</h3>
+        <span class="ai-assistant__hint">Antwort in Sekunden · 24/7</span>
+      </div>
+      <iframe
+        src="https://www.thinkupai.de/automatisierungen/schmatec_iframe"
+        width="100%"
+        height="650"
+        style="border: none; border-radius: 16px;"
+        allow="clipboard-write"
+        loading="lazy"
+        title="FAQ-Assistent">
+      </iframe>
     </div>
   </div>
 </section>
@@ -464,9 +482,6 @@
 </footer>
 
 <script src="main.js" defer></script>
-<script src="https://www.thinkupai.de/widget/schmatec-gmbh/faqbot.js" async></script>
 
-<!-- WEBUNDO Analytics -->
-<script src="https://analytics.laendle-digital.com/tracker.js" data-website-id="schmatec" defer></script>
 </body>
 </html>
