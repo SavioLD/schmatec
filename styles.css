@@ -964,7 +964,7 @@ body.nav-open { overflow: hidden; }
   margin: 0 0 20px;
 }
 .quote::before { content: "„"; color: var(--signal-blue); margin-right: 4px; }
-.quote::after  { content: """; color: var(--signal-blue); margin-left: 4px; }
+.quote::after  { content: "\201C"; color: var(--signal-blue); margin-left: 4px; }
 .quote-author {
   font-family: var(--mono);
   font-size: .82rem;
